@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Djelaoudji Abdelouahab | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 22px;
+      color: #00b4ff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    nav ul li a:hover {
+      color: #00b4ff;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: transform 1s ease-in-out;
+      padding: 20px;
+    }
+
+    /* Home */
+    #home {
+      background: radial-gradient(circle at top left, #101020, #050505);
+      text-align: center;
+    }
+
+    #home img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00b4ff;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(0,180,255,0.5);
+    }
+
+    #home h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    #home p {
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    /* Skills badges */
+    .skills {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .skill {
+      background-color: #00b4ff;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0,180,255,0.3);
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background-color: #007acc;
+      box-shadow: 0 6px 15px rgba(0,180,255,0.5);
+    }
+
+    /* Projects */
+    #projects {
+      background-color: #0d1b2a;
+      color: #fff;
+      text-align: center;
+    }
+
+    .project-card {
+      background-color: #1b263b;
+      padding: 25px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      text-align: center;
+      transition: transform 0.5s, opacity 0.5s;
+      opacity: 0;
+      transform: translateY(50px);
+      margin-bottom: 20px;
+    }
+
+    .project-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card h2 {
+      margin-bottom: 10px;
+      color: #00aaff;
+    }
+
+    /* Contact */
+    #contact {
+      background: linear-gradient(180deg, #00111f, #002a4a);
+      text-align: center;
+    }
+
+    #contact h2 {
+      color: #00b4ff;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    #contact p {
+      font-size: 18px;
+      color: #fff;
+      margin: 5px 0;
+    }
+
+    /* Buttons */
+    .btn {
+      margin-top: 25px;
+      padding: 10px 25px;
+      border: 2px solid #00b4ff;
+      color: #00b4ff;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00b4ff;
+      color: #fff;
+      box-shadow: 0 0 20px #00b4ff;
+    }
+
+    /* Container slide animation */
+    .container {
+      transition: transform 1s ease;
+    }
+
+    .slide-home {
+      transform: translateY(0);
+    }
+
+    .slide-projects {
+      transform: translateY(-100vh);
+    }
+
+    .slide-contact {
+      transform: translateY(-200vh);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Djelaoudji Abdelouahab</h1>
+    <ul>
+      <li><a id="homeBtn">Home</a></li>
+      <li><a id="projectsBtn">Projects</a></li>
+      <li><a id="contactBtn">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container slide-home" id="container">
+    <!-- Home Slide -->
+    <section id="home">
+      <img src="IMG_0456.JPG" alt="Djelaoudji Abdelouahab">
+      <h2>Djelaoudji Abdelouahab</h2>
+      <p>Master 1 – Ingénierie des Données & Technologie du Web</p>
+
+      <!-- Skills -->
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Data Analysis</span>
+        <span class="skill">Python</span>
+      </div>
+
+      <button class="btn" id="toProjects">Voir Projet</button>
+    </section>
+
+    <!-- Projects Slide -->
+    <section id="projects">
+      <div class="project-card" id="projectCard">
+        <h2>Application Calendrier Médical</h2>
+        <p>
+          Application web permettant de gérer les rendez-vous d’un cabinet médical. 
+          Ajouter, modifier et supprimer des rendez-vous, visualiser les disponibilités, 
+          et suivre l’historique des patients.
+        </p>
+        <p><strong>Compétences :</strong> HTML, CSS, JavaScript, SQL, Modélisation des données, UX/UI</p>
+      </div>
+      <button class="btn" id="toContact">Contact Me</button>
+    </section>
+
+    <!-- Contact Slide -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: wahabdjelaoudji@gmail.com</p>
+      <p>Téléphone: 0670757686</p>
+      <button class="btn" id="backHome">Back to Home</button>
+    </section>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const homeBtn = document.getElementById('homeBtn');
+    const projectsBtn = document.getElementById('projectsBtn');
+    const contactBtn = document.getElementById('contactBtn');
+    const toProjects = document.getElementById('toProjects');
+    const toContact = document.getElementById('toContact');
+    const backHome = document.getElementById('backHome');
+    const projectCard = document.getElementById('projectCard');
+
+    function showHome() {
+      container.className = 'container slide-home';
+      projectCard.classList.remove('show');
+    }
+
+    function showProjects() {
+      container.className = 'container slide-projects';
+      setTimeout(() => {
+        projectCard.classList.add('show'); // Animation d'apparition
+      }, 500);
+    }
+
+    function showContact() {
+      container.className = 'container slide-contact';
+      projectCard.classList.remove('show');
+    }
+
+    homeBtn.addEventListener('click', showHome);
+    projectsBtn.addEventListener('click', showProjects);
+    contactBtn.addEventListener('click', showContact);
+    toProjects.addEventListener('click', showProjects);
+    toContact.addEventListener('click', showContact);
+    backHome.addEventListener('click', showHome);
+  </script>
+</body>
+</html>
+
+
+      
